@@ -1,71 +1,50 @@
-// ================= MENU RESPONSIVO =================
-const menuBtn = document.getElementById("menu-btn");
-const menu = document.getElementById("menu");
-
-menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("ativo");
-});
-
-
-// ================= TEMA ESCURO =================
-const temaBtn = document.getElementById("tema-btn");
-
-temaBtn.addEventListener("click", () => {
-
-    // Adiciona ou remove a classe dark
-    document.body.classList.toggle("dark");
-
-    // Troca ícone
-    if (document.body.classList.contains("dark")) {
-        temaBtn.textContent = "☀️";
-    } else {
-        temaBtn.textContent = "🌙";
-    }
-});
-
-
 // ================= FORMULÁRIO =================
+
+// Captura o formulário
 const formulario = document.getElementById("formulario");
-const retorno = document.getElementById("retorno");
 
-formulario.addEventListener("submit", function(event) {
+// Verifica se o formulário existe na página
+if(formulario){
 
-    // Impede envio real
-    event.preventDefault();
+    formulario.addEventListener("submit", function(event){
 
-    // Captura campos
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const mensagem = document.getElementById("mensagem").value.trim();
+        // Impede envio real
+        event.preventDefault();
 
+        // Captura valores
+        const nome = document.getElementById("nome").value.trim();
 
-    // Verifica campos vazios
-    if (nome === "" || email === "" || mensagem === "") {
+        const email = document.getElementById("email").value.trim();
 
-        retorno.textContent = "Preencha todos os campos.";
-        retorno.style.color = "red";
-
-        return;
-    }
+        const mensagem = document.getElementById("mensagem").value.trim();
 
 
-    // Validação simples de e-mail
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Validação de campos vazios
+        if(nome === "" || email === "" || mensagem === ""){
 
-    if (!emailValido.test(email)) {
+            alert("Preencha todos os campos.");
 
-        retorno.textContent = "Digite um e-mail válido.";
-        retorno.style.color = "red";
-
-        return;
-    }
+            return;
+        }
 
 
-    // Simulação de envio
-    retorno.textContent = "Mensagem enviada com sucesso!";
-    retorno.style.color = "green";
+        // Validação simples de e-mail
+        const emailValido = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+        if(!emailValido.test(email)){
+
+            alert("Digite um e-mail válido.");
+
+            return;
+        }
 
 
-    // Limpa formulário
-    formulario.reset();
-});
+        // Simulação de envio
+        alert("Mensagem enviada com sucesso!");
+
+        // Limpa formulário
+        formulario.reset();
+
+    });
+
+}
