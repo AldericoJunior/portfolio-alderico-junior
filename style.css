@@ -1,0 +1,82 @@
+/* ================= RESET ================= */
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #005fa3;
+}
+
+#retorno {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* ================= TEMA ESCURO ================= */
+.dark {
+    background-color: #121212;
+    color: white;
+}
+
+.dark .card,
+.dark .projeto {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.dark .secao h2 {
+    color: white;
+}
+
+
+/* ================= RESPONSIVIDADE ================= */
+@media (max-width: 768px) {
+
+    #menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+
+        position: absolute;
+        top: 70px;
+        right: 20px;
+
+        background-color: #222;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav.ativo {
+        display: block;
+    }
+}
